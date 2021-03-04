@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import argparse
+import json
 from xpoints import xpoints
 from prepare_games import prepare_games
 
@@ -15,8 +17,17 @@ def main():
     xpoints_dict = xpoints(results)
     xpoints_df = pd.DataFrame.from_dict(xpoints_dict, orient='index', dtype='float64',columns=['xPoints'])
     xpoints_df.sort_values(by="xPoints",inplace=True,ascending=False)
+    xpoints_df.reset_index(inplace=True)
+    xpoints_df.rename(inplace=True,columns={'index':'Team'})
+    xpoints_df.index = np.arange(1, len(xpoints_df) + 1)
     print(xpoints_df)
+    if args.json:
+        with open(str(args.input_data).split('.')[0]+'-xPoints.json','w') as jsonfile:
+            json.dump(xpoints_dict,jsonfile)
 
+    if args.csv:
+        with open(str(args.input_data).split('.')[0]+'-xPoints.csv','w') as csvfile:
+            xpoints_df.to_csv(csvfile)
 
 
 if __name__=='__main__':
