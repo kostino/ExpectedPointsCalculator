@@ -12,4 +12,6 @@ pip install -r requirements.txt
 python calculator.py input_data.csv
 ```
 Prints the expected points table for the league.  
-Also possible to save xPoints data as csv or json and even export the table as png.
+* Save table as csv: --csv or -c
+* Save table data as json: --json or -j
+* Export as image: --img or -i (**Not implemented yet**)
