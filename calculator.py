@@ -29,6 +29,9 @@ def main():
         with open(str(args.input_data).split('.')[0]+'-xPoints.csv','w') as csvfile:
             xpoints_df.to_csv(csvfile)
 
+    if args.img:
+        print("Not implemented yet")
+
 
 if __name__=='__main__':
     main()
