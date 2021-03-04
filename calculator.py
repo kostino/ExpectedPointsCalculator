@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import argparse
 import json
+import plotly.figure_factory as ff
 from xpoints import xpoints
 from prepare_games import prepare_games
 
@@ -30,8 +31,9 @@ def main():
             xpoints_df.to_csv(csvfile)
 
     if args.img:
-        print("Not implemented yet")
-
+        fig = ff.create_table(xpoints_df)
+        fig.update_layout(autosize=False, height=30*len(xpoints_dict.keys()),width=300)
+        fig.write_image(str(args.input_data).split('.')[0]+"-xPoints.png")
 
 if __name__=='__main__':
     main()
