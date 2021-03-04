@@ -6,10 +6,11 @@ from prepare_games import prepare_games
 def main():
     if len(sys.argv) != 2:
         print('Incorrect usage!. Use as:\n python3 calculator.py <results_file.csv>')
-    results = pd.read_csv(argv[1])
+    print(sys.argv[1])
+    results = pd.read_csv(sys.argv[1])
     results = prepare_games(results)
     xpoints_dict = xpoints(results)
-    print(xpoints)
+    print(xpoints_dict)
 
 
 if __name__=='__main__':
