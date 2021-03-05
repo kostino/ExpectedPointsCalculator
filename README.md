@@ -21,4 +21,4 @@ Prints the expected points table for the league.
 * Save table data as json: --json or -j
 * Export as image: --img or -i
 
-Example data extracted from [fbref](www.fbref.com)
+Example data extracted from [fbref](https://fbref.com/en/)
