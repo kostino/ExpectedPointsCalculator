@@ -12,10 +12,14 @@ def main():
     parser.add_argument("-i","--img",help="Generate image for xpoints table",action="store_true")
     parser.add_argument("-j","--json",help="Save xpoints data as JSON",action="store_true")
     parser.add_argument("-c","--csv",help="Save xpoints data as CSV",action="store_true")
+    parser.add_argument("-r","--round",help="Round expected points to nearest integer",action="store_true")
     args = parser.parse_args()
     results = pd.read_csv(str(args.input_data))
     results = prepare_games(results)
     xpoints_dict = xpoints(results)
+    if args.round:
+        for key in xpoints_dict.keys():
+            xpoints_dict[key]=round(xpoints_dict[key])
     xpoints_df = pd.DataFrame.from_dict(xpoints_dict, orient='index', dtype='float64',columns=['xPoints'])
     xpoints_df.sort_values(by="xPoints",inplace=True,ascending=False)
     xpoints_df.reset_index(inplace=True)

@@ -20,6 +20,7 @@ Prints the expected points table for the league.
 * Save table as csv: --csv or -c
 * Save table data as json: --json or -j
 * Export as image: --img or -i
+* Round the expected points to the nearest integer: --round or -r
 
 Example data extracted from [fbref](https://fbref.com/en/)
 
