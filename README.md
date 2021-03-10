@@ -25,8 +25,9 @@ Prints the expected points table for the league.
 Example data extracted from [fbref](https://fbref.com/en/)
 
 ## How it works
-This calculator works by evaluating each match separately and assigning each team an amount of expected points for the match. The final table is created by adding all the expected points each team has gathered from all their matches. The xPoints a team gains from each match are calculated as follows: ${xPoints = winProb\times3 + drawProb\times1}$
+This calculator works by evaluating each match separately and assigning each team an amount of expected points for the match. The final table is created by adding all the expected points each team has gathered from all their matches. The xPoints a team gains from each match are calculated as follows: 
+![xPFormula](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+xPoints+%3D+winProb%5Ctimes3+%2B+drawProb%5Ctimes1%0A)
 #### How win and draw probabilities are calculated
-We can consider the goals a team scores in a match to be a random variable following a Bernoulli distribution with a mean value equal to their expected goals for said match. This way if we know the expected goals for both teams we can find the probability that they score 0,1,2,3,4... etc goals in the match and combining those probabilities for the two teams can give us the win and draw probabilities for the match.  
+We can consider the goals a team scores in a match to be a random variable following a Poisson distribution with a mean value equal to their expected goals for said match. This way if we know the expected goals for both teams we can find the probability that they score 0,1,2,3,4... etc goals in the match and combining those probabilities for the two teams can give us the win and draw probabilities for the match.  
 #### Example: Barcelona - Real Madrid 1-3 24/10/2020
 [example](xPoints_Barcelona-RealMadrid_example.ipynb)
